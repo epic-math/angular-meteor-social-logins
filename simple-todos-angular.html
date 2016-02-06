@@ -1,0 +1,30 @@
+<head>
+  <title>Todo List</title>
+</head>
+ 
+<body>
+<div class="container"
+  ng-app="simple-todos"
+  ng-controller="TodosListCtrl">
+
+  <header>
+    <h1>Todo List</h1>
+    
+    <login-buttons></login-buttons>
+
+    <form class="new-item" ng-submit="addItem(newItem); newItem='';">
+      <input ng-model="newItem" type="text"
+             name="text" placeholder="Type to add new items" />
+    </form>
+  </header>
+ 
+  <ul>
+    <li ng-repeat="item in items" ng-class="{'checked': item.checked}">
+      <button class="delete" ng-click="items.remove(item)">&times;</button>
+      <input type="checkbox" ng-model="item.checked" class="toggle-checked" />
+      <span class="text">{{item.text}}</span>
+    </li>
+  </ul>
+
+</div>
+</body>
